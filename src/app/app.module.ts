@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SerieListComponent } from './serie-list/serie-list.component';
+import { SerieFavoritasComponent } from './serie-favoritas/serie-favoritas.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SerieListComponent,
+    SerieFavoritasComponent
   ],
   imports: [
     BrowserModule,

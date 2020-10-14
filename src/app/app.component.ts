@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'World Series';
+  anio: number;
+
+
+
+  constructor() {
+    this.anio = new Date().getFullYear();
+   }
+
 }

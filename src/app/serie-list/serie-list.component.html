@@ -1,0 +1,25 @@
+<hr>
+<h1>Lista de series</h1>
+<hr>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Titulo Original</th>
+            <th>Genero</th>
+            <th>Año</th>
+            <th>Plataforma</th>
+            <th>disponible</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let serie of series">
+            <td><img [src]="serie.image" class="card-img-top" [alt]="serie.titulo"></td>
+            <td>{{serie.titulo}}</td>
+            <td>{{serie.genero}}</td>
+            <td>{{serie.anio}}</td>
+            <td>{{serie.plataforma}}</td>
+            <td><span *ngIf="serie.anio > anio">NO DISPONIBLE</span></td>
+        </tr>
+    </tbody>
+</table>

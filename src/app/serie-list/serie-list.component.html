@@ -10,16 +10,19 @@
             <th>Año</th>
             <th>Plataforma</th>
             <th>disponible</th>
+            <th>le gusta</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let serie of series">
+        <tr *ngFor="let serie of series" [ngClass]="{'estreno': serie.anio ==anio}">
             <td><img [src]="serie.image" class="card-img-top" [alt]="serie.titulo"></td>
             <td>{{serie.titulo}}</td>
             <td>{{serie.genero}}</td>
             <td>{{serie.anio}}</td>
             <td>{{serie.plataforma}}</td>
-            <td><span *ngIf="serie.anio > anio">NO DISPONIBLE</span></td>
+            <td><span class="badge badge-danger" *ngIf="serie.anio > anio">NO DISPONIBLE</span>
+                <span class="badge badge-warning" *ngIf="serie.anio == anio">ESTRENO</span></td>
+            <td>{{serie.gusta | percent}}</td>
         </tr>
     </tbody>
 </table>

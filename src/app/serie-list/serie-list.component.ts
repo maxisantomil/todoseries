@@ -14,16 +14,18 @@ export class SerieListComponent implements OnInit {
     anio: 2016 ,
     plataforma: 'Netflix' ,
     image: 'assets/img/str-1.jpg',
-    disponible: 'si ',
+    disponible: true,
+    gusta: 0.9,
 
   },
   {
     titulo: 'Ozark' ,
     genero: 'Drama, Suspenso' ,
-    anio: 2017 ,
+    anio: 2020 ,
     plataforma: 'Netflix' ,
     image: 'assets/img/oz-1.jpg',
-    disponible: 'si' ,
+    disponible: true ,
+    gusta: 0.75,
 
   },
   {
@@ -32,7 +34,18 @@ export class SerieListComponent implements OnInit {
     anio: 2022 ,
     plataforma: 'Hbo' ,
     image: 'assets/img/gm-1.jpg',
-    disponible: 'si' ,
+    disponible: true ,
+    gusta: 0.95,
+
+  },
+  {
+    titulo: 'The Boys' ,
+    genero: 'Drama, Ciencia Ficcion' ,
+    anio: 2019 ,
+    plataforma: 'Amazon Prime' ,
+    image: 'assets/img/boys-1.jpg',
+    disponible: true ,
+    gusta: 0.80,
 
   }
 ];

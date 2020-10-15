@@ -5,5 +5,6 @@
     anio: number;
     plataforma: String;
     image: String;
-    disponible:String;
+    disponible:boolean;
+    gusta:number;
 }

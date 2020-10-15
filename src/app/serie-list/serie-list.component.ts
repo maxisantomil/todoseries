@@ -16,6 +16,8 @@ export class SerieListComponent implements OnInit {
     image: 'assets/img/str-1.jpg',
     disponible: true,
     gusta: 0.9,
+    stock: 1,
+    quantity: 0,
 
   },
   {
@@ -26,6 +28,8 @@ export class SerieListComponent implements OnInit {
     image: 'assets/img/oz-1.jpg',
     disponible: true ,
     gusta: 0.75,
+    stock: 4,
+    quantity: 0,
 
   },
   {
@@ -36,6 +40,8 @@ export class SerieListComponent implements OnInit {
     image: 'assets/img/gm-1.jpg',
     disponible: true ,
     gusta: 0.95,
+    stock: 0,
+    quantity: 0,
 
   },
   {
@@ -46,6 +52,8 @@ export class SerieListComponent implements OnInit {
     image: 'assets/img/boys-1.jpg',
     disponible: true ,
     gusta: 0.80,
+    stock: 0,
+    quantity: 0,
 
   }
 ];
@@ -55,6 +63,16 @@ export class SerieListComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+  upQuantity(serie: Serie): void {
+    if (serie.quantity < serie.stock ){
+      serie.quantity ++ ;
+    }
+  }
+  downQuantity(serie: Serie): void {
+    if (serie.quantity > 0){
+      serie.quantity -- ;
+    }
   }
 
 }

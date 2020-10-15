@@ -1,7 +1,7 @@
 <hr>
 <h1>Lista de series</h1>
 <hr>
-<table class="table">
+<table class="table table-hover">
     <thead>
         <tr>
             <th>Imagen</th>
@@ -10,19 +10,25 @@
             <th>Año</th>
             <th>Plataforma</th>
             <th>disponible</th>
-            <th>le gusta</th>
+            <th>Stock Blu-ray</th>
+            <th> Compras -BR- </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let serie of series" [ngClass]="{'estreno': serie.anio ==anio}">
-            <td><img [src]="serie.image" class="card-img-top" [alt]="serie.titulo"></td>
+            <td><img [src]="serie.image" width="100" class="img-thumbnail" [alt]="serie.titulo"></td>
             <td>{{serie.titulo}}</td>
             <td>{{serie.genero}}</td>
             <td>{{serie.anio}}</td>
             <td>{{serie.plataforma}}</td>
-            <td><span class="badge badge-danger" *ngIf="serie.anio > anio">NO DISPONIBLE</span>
-                <span class="badge badge-warning" *ngIf="serie.anio == anio">ESTRENO</span></td>
-            <td>{{serie.gusta | percent}}</td>
+            <td><span class="badge badge-dark" *ngIf="serie.anio > anio">NO DISPONIBLE</span>
+                <span class="badge badge-dark" *ngIf="serie.anio == anio">ESTRENO</span></td>
+            <td><span class="badge badge-warning" *ngIf="serie.stock == 0">SIN STOCK</span></td>
+            <td>
+                <button class="btn btn-primary btn-sm" (click)="downQuantity(serie)">-</button> {{serie.quantity}}
+                <button class="btn btn-primary btn-sm" (click)="upQuantity(serie)">+</button>
+            </td>
+
         </tr>
     </tbody>
 </table>

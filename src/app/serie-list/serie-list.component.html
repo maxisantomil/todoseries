@@ -1,34 +1,28 @@
 <hr>
 <h1>Lista de series</h1>
 <hr>
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Imagen</th>
-            <th>Titulo Original</th>
-            <th>Genero</th>
-            <th>Año</th>
-            <th>Plataforma</th>
-            <th>disponible</th>
-            <th>Stock Blu-ray</th>
-            <th> Compras -BR- </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let serie of series" [ngClass]="{'estreno': serie.anio ==anio}">
-            <td><img [src]="serie.image" width="100" class="img-thumbnail" [alt]="serie.titulo"></td>
-            <td>{{serie.titulo}}</td>
-            <td>{{serie.genero}}</td>
-            <td>{{serie.anio}}</td>
-            <td>{{serie.plataforma}}</td>
-            <td><span class="badge badge-dark" *ngIf="serie.anio > anio">NO DISPONIBLE</span>
-                <span class="badge badge-dark" *ngIf="serie.anio == anio">ESTRENO</span></td>
-            <td><span class="badge badge-warning" *ngIf="serie.stock == 0">SIN STOCK</span></td>
-            <td>
-                <button class="btn btn-primary btn-sm" (click)="downQuantity(serie)">-</button> {{serie.quantity}}
-                <button class="btn btn-primary btn-sm" (click)="upQuantity(serie)">+</button>
-            </td>
+<div class="card-columns">
 
-        </tr>
-    </tbody>
-</table>
+    <div class="card animated fadeIn fast" *ngFor="let serie of series ; let i= index" [ngClass]="{'estreno': serie.anio ==anio}">
+        <img [src]="serie.image" class="card-img-top tamano img-thumbnail" [alt]="serie.titulo">
+        <div class="card-body">
+            <h5 class="card-title"> {{ serie.titulo }}</h5>
+            <p class="card-text"> {{ serie.genero }}</p>
+            <p class="card-text">{{ serie.anio }}</p>
+            <p class="card-text plat">{{ serie.plataforma }}</p>
+
+            <span class="badge badge-dark" *ngIf="serie.anio > anio">NO DISPONIBLE</span>
+            <span class="badge badge-warning" *ngIf="serie.anio == anio">ESTRENO</span>
+            <hr>
+
+            <button (click)="agregarfavorito(serie)" type="button" class="btn btn-outline-warning btn-block">
+                agregar a favoritos
+            </button>
+            <hr>
+            <button (click)="verSerie(i)" type="button" class="btn btn-outline-primary btn-block">
+                ver más...
+            </button>
+        </div>
+    </div>
+
+</div>

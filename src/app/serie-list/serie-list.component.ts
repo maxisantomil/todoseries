@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { SerieCarritoComponent } from '../serie-carrito/serie-carrito.component';
 import { Serie } from './Serie';
+import { SerieCartService } from '../serie-cart.service';
+
 @Component({
   selector: 'app-serie-list',
   templateUrl: './serie-list.component.html',
@@ -55,14 +58,41 @@ export class SerieListComponent implements OnInit {
     stock: 0,
     quantity: 0,
 
+  },
+  {
+    titulo: 'The Mandalorian' ,
+    genero: 'Drama, Ciencia Ficcion' ,
+    anio: 2019 ,
+    plataforma: 'Disney +' ,
+    image: 'assets/img/mando-1.jpg',
+    disponible: true ,
+    gusta: 0.80,
+    stock: 0,
+    quantity: 0,
+
+  },
+  {
+    titulo: 'Peaky Blinders' ,
+    genero: 'Drama' ,
+    anio: 2013 ,
+    plataforma: 'BBC' ,
+    image: 'assets/img/peaky-1.jpg',
+    disponible: true ,
+    gusta: 0.80,
+    stock: 0,
+    quantity: 0,
+
   }
 ];
   anio: number;
-  constructor() {
+
+  constructor(private cart: SerieCartService) {
     this.anio = new Date().getFullYear();
    }
 
   ngOnInit(): void {
+
+
   }
   upQuantity(serie: Serie): void {
     if (serie.quantity < serie.stock ){
@@ -75,4 +105,8 @@ export class SerieListComponent implements OnInit {
     }
   }
 
+
+  agregarfavorito(serie): void{
+    this.cart.agregarfavorito(serie);
+  }
 }

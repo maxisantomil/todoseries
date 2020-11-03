@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
+import { SerieCartService } from '../serie-cart.service';
+import { Serie } from '../serie-list/Serie';
 
 @Component({
   selector: 'app-serie-carrito',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SerieCarritoComponent implements OnInit {
 
-  constructor() { }
+
+  favoriteList: Serie[];
+
+  constructor(private cart:SerieCartService) {
+      cart.favoriteList.subscribe(c => this.favoriteList = c);
+
+  }
+  
+
 
   ngOnInit(): void {
   }

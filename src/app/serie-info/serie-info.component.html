@@ -1,0 +1,22 @@
+<h1 class="animated fadeIn fast">{{ serie.titulo |uppercase}} <small>({{serie.anio}})</small></h1>
+<hr>
+
+<div class="row">
+    <div class="col-md-4  animated fadeIn fast">
+        <img [src]="serie.image" class="img-fluid" [alt]="serie.titulo">
+        <br><br>
+        <hr>
+        <a [routerLink]="['/series']" class="btn btn-outline-danger btn-block">Regresar</a>
+    </div>
+    <div class="col-md-8  animated fadeIn ">
+        <h3>{{serie.plataforma}}</h3>
+        <hr>
+        <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore harum architecto recusandae expedita ea! Porro earum quas vero inventore illo. Consectetur illo blanditiis corrupti, laboriosam error dolore? Labore, reprehenderit illum!</h3>
+        <hr>
+        <p>
+            al {{serie.gusta| percent}} le gusta esto.
+        </p>
+        <hr>
+    </div>
+
+</div>

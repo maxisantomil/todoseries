@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { SerieCarritoComponent } from './serie-carrito/serie-carrito.component';
 import { SerieNoticiasComponent } from './serie-noticias/serie-noticias.component';
 import { SeriePrincipalseriesComponent } from './serie-principalseries/serie-principalseries.component';
+import { SerieInfoComponent } from './serie-info/serie-info.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SeriePrincipalseriesComponent } from './serie-principalseries/serie-pri
     SerieCarritoComponent,
     SerieNoticiasComponent,
     SeriePrincipalseriesComponent,
+    SerieInfoComponent,
   ],
   imports: [
     BrowserModule,

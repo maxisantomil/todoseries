@@ -6,6 +6,4 @@
     image: String;
     disponible: boolean;
     gusta: number;
-    stock: number;
-    quantity: number;
 }

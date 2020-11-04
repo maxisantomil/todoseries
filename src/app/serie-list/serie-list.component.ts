@@ -2,6 +2,9 @@ import { Component, OnInit} from '@angular/core';
 import { SerieCarritoComponent } from '../serie-carrito/serie-carrito.component';
 import { Serie } from './Serie';
 import { SerieCartService } from '../serie-cart.service';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-serie-list',
@@ -19,9 +22,6 @@ export class SerieListComponent implements OnInit {
     image: 'assets/img/str-1.jpg',
     disponible: true,
     gusta: 0.9,
-    stock: 1,
-    quantity: 0,
-
   },
   {
     titulo: 'Ozark' ,
@@ -31,8 +31,6 @@ export class SerieListComponent implements OnInit {
     image: 'assets/img/oz-1.jpg',
     disponible: true ,
     gusta: 0.75,
-    stock: 4,
-    quantity: 0,
 
   },
   {
@@ -43,8 +41,7 @@ export class SerieListComponent implements OnInit {
     image: 'assets/img/gm-1.jpg',
     disponible: true ,
     gusta: 0.95,
-    stock: 0,
-    quantity: 0,
+
 
   },
   {
@@ -55,8 +52,6 @@ export class SerieListComponent implements OnInit {
     image: 'assets/img/boys-1.jpg',
     disponible: true ,
     gusta: 0.80,
-    stock: 0,
-    quantity: 0,
 
   },
   {
@@ -67,8 +62,6 @@ export class SerieListComponent implements OnInit {
     image: 'assets/img/mando-1.jpg',
     disponible: true ,
     gusta: 0.80,
-    stock: 0,
-    quantity: 0,
 
   },
   {
@@ -79,22 +72,23 @@ export class SerieListComponent implements OnInit {
     image: 'assets/img/peaky-1.jpg',
     disponible: true ,
     gusta: 0.80,
-    stock: 0,
-    quantity: 0,
 
   }
 ];
   anio: number;
 
-  constructor(private cart: SerieCartService) {
-    this.anio = new Date().getFullYear();
+
+  constructor(private cart: SerieCartService,
+              private router: Router) {
+              this.anio = new Date().getFullYear();
    }
 
   ngOnInit(): void {
 
 
   }
-  upQuantity(serie: Serie): void {
+
+  /*upQuantity(serie: Serie): void {
     if (serie.quantity < serie.stock ){
       serie.quantity ++ ;
     }
@@ -103,10 +97,15 @@ export class SerieListComponent implements OnInit {
     if (serie.quantity > 0){
       serie.quantity -- ;
     }
-  }
+  }*/
 
 
   agregarfavorito(serie): void{
     this.cart.agregarfavorito(serie);
   }
+
+  verSerie(idx: number){
+    this.router.navigate(['/serie', idx]);
+  }
+
 }

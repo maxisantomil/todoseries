@@ -17,6 +17,9 @@
             <td> {{serie.titulo}} </td>
             <td> {{serie.plataforma}} </td>
             <td> {{serie.anio}} </td>
+            <button (click)="eliminar(id)" type="button" class="btn btn-outline-danger btn-block">
+                Eliminar de mi lista
+            </button>
         </tr>
     </tbody>
 </table>

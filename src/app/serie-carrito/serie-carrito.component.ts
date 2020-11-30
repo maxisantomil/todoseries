@@ -16,7 +16,11 @@ export class SerieCarritoComponent implements OnInit {
       cart.favoriteList.subscribe(c => this.favoriteList = c);
 
   }
-  
+
+
+  eliminar(index) {
+    this.favoriteList.splice(index,1);
+}
 
 
   ngOnInit(): void {

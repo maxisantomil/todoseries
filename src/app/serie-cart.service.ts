@@ -82,6 +82,9 @@ export class SerieCartService {
    this.favoriteList.next(this._favoriteList); //equivalente al emitt de eventos
   }
 
+  getSeries(){
+    return this.series;
+}
 
   getSerie( idx: string){
     return this.series[idx];

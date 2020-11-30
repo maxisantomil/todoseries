@@ -13,81 +13,22 @@ import { Router } from '@angular/router';
 })
 export class SerieListComponent implements OnInit {
 
-  series: Serie[] = [
-    {
-    titulo: 'Stranger Things' ,
-    genero: 'Drama, Misterio, Ciencia Ficcion' ,
-    anio: 2016 ,
-    plataforma: 'Netflix' ,
-    image: 'assets/img/str-1.jpg',
-    disponible: true,
-    gusta: 0.9,
-  },
-  {
-    titulo: 'Ozark' ,
-    genero: 'Drama, Suspenso' ,
-    anio: 2020 ,
-    plataforma: 'Netflix' ,
-    image: 'assets/img/oz-1.jpg',
-    disponible: true ,
-    gusta: 0.75,
-
-  },
-  {
-    titulo: 'Game of Thrones' ,
-    genero: 'Aventura, Drama' ,
-    anio: 2022 ,
-    plataforma: 'Hbo' ,
-    image: 'assets/img/gm-1.jpg',
-    disponible: true ,
-    gusta: 0.95,
-
-
-  },
-  {
-    titulo: 'The Boys' ,
-    genero: 'Drama, Ciencia Ficcion' ,
-    anio: 2019 ,
-    plataforma: 'Amazon Prime' ,
-    image: 'assets/img/boys-1.jpg',
-    disponible: true ,
-    gusta: 0.80,
-
-  },
-  {
-    titulo: 'The Mandalorian' ,
-    genero: 'Drama, Ciencia Ficcion' ,
-    anio: 2019 ,
-    plataforma: 'Disney +' ,
-    image: 'assets/img/mando-1.jpg',
-    disponible: true ,
-    gusta: 0.80,
-
-  },
-  {
-    titulo: 'Peaky Blinders' ,
-    genero: 'Drama' ,
-    anio: 2013 ,
-    plataforma: 'BBC' ,
-    image: 'assets/img/peaky-1.jpg',
-    disponible: true ,
-    gusta: 0.80,
-
-  }
-];
+  series: Serie[] = [] ;
   anio: number;
 
 
-  constructor(private cart: SerieCartService,
+  // tslint:disable-next-line: variable-name
+  constructor(private _seriesService: SerieCartService,
               private router: Router) {
               this.anio = new Date().getFullYear();
    }
 
   ngOnInit(): void {
 
-
+    this.series = this._seriesService.getSeries();
   }
 
+  
   /*upQuantity(serie: Serie): void {
     if (serie.quantity < serie.stock ){
       serie.quantity ++ ;
@@ -101,7 +42,7 @@ export class SerieListComponent implements OnInit {
 
 
   agregarfavorito(serie): void{
-    this.cart.agregarfavorito(serie);
+    this._seriesService.agregarfavorito(serie);
   }
 
   verSerie(idx: number){

@@ -74,7 +74,7 @@ export class SerieCartService {
   constructor() { }
 
   agregarfavorito(serie: Serie) {
-    let item:Serie = this._favoriteList.find(x => x.titulo == serie.titulo);
+    let item:Serie = this._favoriteList.find(x => x.titulo == serie.titulo,y=>y.anio > serie.anio );
     if (!item){
       this._favoriteList.push({...serie});
     }

@@ -20,12 +20,12 @@ export class SerieListComponent implements OnInit {
   // tslint:disable-next-line: variable-name
   constructor(private _seriesService: SerieCartService,
               private router: Router) {
-              this.anio = new Date().getFullYear();
    }
 
   ngOnInit(): void {
 
     this.series = this._seriesService.getSeries();
+    this.anio =  this._seriesService.getAnioActual();
   }
 
   

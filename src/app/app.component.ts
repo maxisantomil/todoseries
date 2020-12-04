@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SerieCartService } from './serie-cart.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,8 @@ export class AppComponent {
 
 
 
-  constructor() {
-    this.anio = new Date().getFullYear();
+  constructor(  private _serieService: SerieCartService) {
+     this.anio =  _serieService.getAnioActual();
    }
 
 }

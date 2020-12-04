@@ -70,13 +70,18 @@ export class SerieCartService {
   private _favoriteList: Serie[]= [];
 
   favoriteList: BehaviorSubject<Serie[]> = new BehaviorSubject([]);
+  anio: number;
 
-  constructor() { }
+  constructor() {
+    this.anio = new Date().getFullYear();
+   }
 
   agregarfavorito(serie: Serie) {
-    let item:Serie = this._favoriteList.find(x => x.titulo == serie.titulo,y=>y.anio > serie.anio );
+    let item:Serie = this._favoriteList.find(x => x.titulo == serie.titulo);
     if (!item){
+      if (serie.anio <= this.anio) {
       this._favoriteList.push({...serie});
+      }
     }
    console.log(this._favoriteList.length);
    this.favoriteList.next(this._favoriteList); //equivalente al emitt de eventos
@@ -88,6 +93,10 @@ export class SerieCartService {
 
   getSerie( idx: string){
     return this.series[idx];
+  }
+
+  getAnioActual (){
+    return this.anio;
   }
 
 }
